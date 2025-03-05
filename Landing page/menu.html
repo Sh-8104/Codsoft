@@ -1,0 +1,158 @@
+<section class="menu-page">
+    <h1>Our Menu</h1>
+    <div class="menu-categories">
+        <button class="category-btn active">All</button>
+        <button class="category-btn">Classic Pizzas</button>
+        <button class="category-btn">Specialty Pizzas</button>
+        <button class="category-btn">Volcano Pizzas</button>
+        <button class="category-btn">Pizza Slices</button>
+        <button class="category-btn">Garlic Breads</button>
+    </div>
+
+    <div class="menu-grid">
+        <!-- Classic Pizzas -->
+        <!-- ... existing classic pizzas ... -->
+
+        <!-- Specialty Pizzas -->
+        <!-- ... existing specialty pizzas ... -->
+
+        <!-- Volcano Pizzas -->
+        <!-- ... existing volcano pizzas ... -->
+
+        <!-- Pizza Slices -->
+        <!-- ... existing pizza slices ... -->
+
+        <!-- Garlic Breads Section -->
+        <div class="menu-item" data-category="garlic">
+            <img src="https://images.unsplash.com/photo-1619531040576-f9416740661f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Classic Garlic Bread">
+            <div class="menu-item-content">
+                <div class="menu-item-header">
+                    <h3>Classic Garlic Bread</h3>
+                    <span class="menu-item-price">₹149</span>
+                </div>
+                <p>Fresh baked bread with garlic butter and herbs</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="garlic">
+            <img src="https://images.unsplash.com/photo-1600628421055-4d30de868b8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cheese Garlic Bread">
+            <div class="menu-item-content">
+                <div class="menu-item-header">
+                    <h3>Cheese Garlic Bread</h3>
+                    <span class="menu-item-price">₹199</span>
+                </div>
+                <p>Garlic bread topped with melted mozzarella cheese</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="garlic">
+            <img src="https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Stuffed Garlic Bread">
+            <div class="menu-item-content">
+                <div class="menu-item-header">
+                    <h3>Stuffed Garlic Bread</h3>
+                    <span class="menu-item-price">₹249</span>
+                </div>
+                <p>Garlic bread stuffed with cheese, herbs, and jalapeños</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="garlic">
+            <img src="https://images.unsplash.com/photo-1610452220299-5edf90b8a6ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Garlic Bread Supreme">
+            <div class="menu-item-content">
+                <div class="menu-item-header">
+                    <h3>Garlic Bread Supreme</h3>
+                    <span class="menu-item-price">₹299</span>
+                </div>
+                <p>Loaded with cheese, olives, corn, jalapeños, and special sauce</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="garlic">
+            <img src="https://images.unsplash.com/photo-1591985666643-1ecc67616216?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pesto Garlic Bread">
+            <div class="menu-item-content">
+                <div class="menu-item-header">
+                    <h3>Pesto Garlic Bread</h3>
+                    <span class="menu-item-price">₹279</span>
+                </div>
+                <p>Garlic bread with basil pesto, pine nuts, and parmesan</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const category = button.textContent.toLowerCase();
+                
+                menuItems.forEach(item => {
+                    if (category === 'all') {
+                        item.style.display = 'block';
+                        item.classList.remove('hidden');
+                    } else if (category === 'classic pizzas' && item.dataset.category === 'classic') {
+                        item.style.display = 'block';
+                        item.classList.remove('hidden');
+                    } else if (category === 'specialty pizzas' && item.dataset.category === 'specialty') {
+                        item.style.display = 'block';
+                        item.classList.remove('hidden');
+                    } else if (category === 'volcano pizzas' && item.dataset.category === 'volcano') {
+                        item.style.display = 'block';
+                        item.classList.remove('hidden');
+                    } else if (category === 'pizza slices' && item.dataset.category === 'slice') {
+                        item.style.display = 'block';
+                        item.classList.remove('hidden');
+                    } else if (category === 'garlic breads' && item.dataset.category === 'garlic') {
+                        item.style.display = 'block';
+                        item.classList.remove('hidden');
+                    } else {
+                        item.style.display = 'none';
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+<style>
+    .menu-item[data-category="garlic"] {
+        border: 2px solid var(--accent-yellow);
+    }
+
+    .menu-item[data-category="garlic"] .menu-item-header h3 {
+        color: var(--secondary-red);
+    }
+
+    .menu-item[data-category="garlic"]:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
+    }
+
+    .menu-item[data-category="garlic"] .add-to-cart {
+        background-color: var(--primary-red);
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .menu-item[data-category="garlic"] .add-to-cart:hover {
+        background-color: var(--secondary-red);
+        transform: scale(1.05);
+    }
+</style> 
